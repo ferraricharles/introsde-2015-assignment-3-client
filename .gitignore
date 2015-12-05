@@ -1,0 +1,8 @@
+/bin/
+/build
+/ivy
+.gitigore
+.DS_Store
+*.jar
+*.class
+*.DS_Store
