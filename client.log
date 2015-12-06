@@ -1,0 +1,53 @@
+
+       ########## ##########
+      CONNECTED TO https://frozen-shore-6890.herokuapp.com/ws/people?wsdl
+     
+     
+       ### Method #1
+      Calling  readPersonList()
+      Geting result list ==> 131 persons found
+     
+     
+       ### Method #2
+      Calling  readPerson([id = 2])
+      Method #2: Reading Person id = 2 ==>  Full Name: John755bf782-a6dd-436d-888b-af26de5ed489 Tralalala Birthday: 1978-09-01T22:00:00Z Last Measure was in= 2015/12/04 Measure: weight value 150
+     
+     
+       ### Method #3
+      Calling  updatePerson([Person = objectPerson with new FIrst Name =  Johnec5f5ba6-570e-4089-a97d-6b84eb944306])
+      New first name from the Server ==> Johnec5f5ba6-570e-4089-a97d-6b84eb944306
+     
+     
+       ### Method #4
+      Calling  createPerson([Person = {last name = Santos, First Name = Bigode, (Object) HealthProfile = weight 120 }]
+      Method #4 Person added ==> ID: 8305
+     
+     
+       ### Method #5
+      Calling  deletePerson(8305)
+      Method #5 Person deleted, old ID = 8305
+     
+     
+       ### Method #6
+      Calling  getMeasureType(id = 2, measureType = weight)
+      Method #6 List for person id=2 and measureType = weight  returned = 10 results
+     
+     
+       ### Method #7
+      Calling  readMeasureTypes()
+      The method found 6 different measure definitions
+     
+     
+       ### Method #8
+      Calling  readMeasureTypes(id=2,measureType = weight, measureId = 502  )
+      Method #8 Received from person id=2 Measure Type = weight Measure Id = 502
+     
+     
+       ### Method #9
+      Calling  savePersonMeasure(id = 2, new Measure Object(weight, value 120)
+      Method #9 new Measure stored for person 2 measure = weight value = 120
+     
+     
+       ### Method #10
+      Calling  updatePersonMeasure(id = 2,  new Measure Object(weight, value 150))
+      Method #10 updating Measure for person 2 measure = weight value = 150
