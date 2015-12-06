@@ -24,17 +24,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="idPerson" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="lastname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="healthProfile" minOccurs="0">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="lifeStatus" type="{http://ws.soap.assignment.introsde/}lifeStatus" maxOccurs="unbounded" minOccurs="0"/>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
+ *         &lt;element name="lifeStatus" type="{http://ws.soap.assignment.introsde/}lifeStatus" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="firstname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -49,7 +39,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "birthdate",
     "idPerson",
     "lastname",
-    "healthProfile",
+    "lifeStatus",
     "firstname"
 })
 public class Person {
@@ -58,7 +48,8 @@ public class Person {
     protected XMLGregorianCalendar birthdate;
     protected long idPerson;
     protected String lastname;
-    protected Person.HealthProfile healthProfile;
+    @XmlElement(nillable = true)
+    protected List<LifeStatus> lifeStatus;
     protected String firstname;
 
     /**
@@ -126,27 +117,32 @@ public class Person {
     }
 
     /**
-     * Gets the value of the healthProfile property.
+     * Gets the value of the lifeStatus property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Person.HealthProfile }
-     *     
-     */
-    public Person.HealthProfile getHealthProfile() {
-        return healthProfile;
-    }
-
-    /**
-     * Sets the value of the healthProfile property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the lifeStatus property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Person.HealthProfile }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getLifeStatus().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link LifeStatus }
+     * 
+     * 
      */
-    public void setHealthProfile(Person.HealthProfile value) {
-        this.healthProfile = value;
+    public List<LifeStatus> getLifeStatus() {
+        if (lifeStatus == null) {
+            lifeStatus = new ArrayList<LifeStatus>();
+        }
+        return this.lifeStatus;
     }
 
     /**
@@ -171,66 +167,6 @@ public class Person {
      */
     public void setFirstname(String value) {
         this.firstname = value;
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       &lt;sequence>
-     *         &lt;element name="lifeStatus" type="{http://ws.soap.assignment.introsde/}lifeStatus" maxOccurs="unbounded" minOccurs="0"/>
-     *       &lt;/sequence>
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "lifeStatus"
-    })
-    public static class HealthProfile {
-
-        @XmlElement(nillable = true)
-        protected List<LifeStatus> lifeStatus;
-
-        /**
-         * Gets the value of the lifeStatus property.
-         * 
-         * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the lifeStatus property.
-         * 
-         * <p>
-         * For example, to add a new item, do as follows:
-         * <pre>
-         *    getLifeStatus().add(newItem);
-         * </pre>
-         * 
-         * 
-         * <p>
-         * Objects of the following type(s) are allowed in the list
-         * {@link LifeStatus }
-         * 
-         * 
-         */
-        public List<LifeStatus> getLifeStatus() {
-            if (lifeStatus == null) {
-                lifeStatus = new ArrayList<LifeStatus>();
-            }
-            return this.lifeStatus;
-        }
-
     }
 
 }
