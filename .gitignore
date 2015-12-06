@@ -4,5 +4,5 @@
 .gitigore
 .DS_Store
 *.jar
-*.class
 *.DS_Store
+*.class
